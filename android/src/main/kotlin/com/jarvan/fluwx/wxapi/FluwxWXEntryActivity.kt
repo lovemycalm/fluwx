@@ -39,12 +39,12 @@ open class FluwxWXEntryActivity : Activity(), IWXAPIEventHandler {
             if (!WXAPiHandler.wxApiRegistered) {
                 var appInfo = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
                 val wechatAppId = appInfo.metaData.getString("weChatAppId")
-                if (wechatAppId != null ){
-                    WXAPiHandler.setupWxApi(wechatAppId,this)
+                if (wechatAppId != null) {
+                    WXAPiHandler.setupWxApi(wechatAppId, this)
                     WXAPiHandler.setCoolBool(true)
-                    Log.d("fluwx","weChatAppId:" + wechatAppId)
-                }else {
-                    Log.e("fluwx","can't load meta-data weChatAppId")
+                    Log.d("fluwx", "weChatAppId:" + wechatAppId)
+                } else {
+                    Log.e("fluwx", "can't load meta-data weChatAppId")
                 }
             }
             WXAPiHandler.wxApi?.handleIntent(intent, this)
@@ -71,10 +71,11 @@ open class FluwxWXEntryActivity : Activity(), IWXAPIEventHandler {
 
 
     override fun onReq(baseReq: BaseReq) {
-        Log.e("fluwx","onReq:${baseReq.toString()}")
+        Log.e("fluwx", "onReq:${baseReq.toString()}")
         // FIXME: 可能是官方的Bug，从微信拉起APP的Intent类型不对，无法跳转回Flutter Activity
         // 稳定复现场景：微信版本为7.0.5，小程序SDK为2.7.7
-       FluwxRequestHandler.onReq(baseReq,this)
+        FluwxRequestHandler.onReq(baseReq, this)
+        finish()
     }
 
     // 第三方应用发送到微信的请求处理后的响应结果，会回调到该方法
