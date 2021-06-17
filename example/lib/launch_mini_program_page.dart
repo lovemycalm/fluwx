@@ -7,7 +7,7 @@ class LaunchMiniProgramPage extends StatefulWidget {
 }
 
 class _LaunchMiniProgramPageState extends State<LaunchMiniProgramPage> {
-  String? _result = "无";
+  String _result = "无";
 
   @override
   void initState() {

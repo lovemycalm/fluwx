@@ -71,6 +71,7 @@ open class FluwxWXEntryActivity : Activity(), IWXAPIEventHandler {
 
 
     override fun onReq(baseReq: BaseReq) {
+        Log.e("fluwx","onReq:${baseReq.toString()}")
         // FIXME: 可能是官方的Bug，从微信拉起APP的Intent类型不对，无法跳转回Flutter Activity
         // 稳定复现场景：微信版本为7.0.5，小程序SDK为2.7.7
        FluwxRequestHandler.onReq(baseReq,this)

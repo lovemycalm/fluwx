@@ -7,7 +7,7 @@ class SendAuthPage extends StatefulWidget {
 }
 
 class _SendAuthPageState extends State<SendAuthPage> {
-  String? _result = "无";
+  String _result = "无";
 
   @override
   void initState() {

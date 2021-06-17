@@ -14,8 +14,8 @@ class _ShareImagePageState extends State<ShareImagePage> {
 
   String _response = "";
 
-  WeChatImage? source;
-  WeChatImage? thumbnail;
+  WeChatImage source;
+  WeChatImage thumbnail;
 
   @override
   void initState() {
@@ -110,7 +110,7 @@ class _ShareImagePageState extends State<ShareImagePage> {
   }
 
   void _shareImage() {
-    shareToWeChat(WeChatShareImageModel(source!, thumbnail: thumbnail));
+    shareToWeChat(WeChatShareImageModel(source, thumbnail: thumbnail));
   }
 
   void handleRadioValueChanged(WeChatScene scene) {
